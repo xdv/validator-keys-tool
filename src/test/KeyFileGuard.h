@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 /*
-    This file is part of rippled: https://github.com/ripple/rippled
+    This file is part of divvyd: https://github.com/xdv/divvyd
     Copyright 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -17,11 +17,11 @@
 */
 //==============================================================================
 
-#include <ripple/beast/unit_test.h>
+#include <divvy/beast/unit_test.h>
 #include <boost/filesystem.hpp>
 #include <fstream>
 
-namespace ripple {
+namespace divvy {
 
 /**
    Write a key file dir and remove when done.
@@ -74,4 +74,4 @@ public:
     }
 };
 
-}  // ripple
+}  // divvy

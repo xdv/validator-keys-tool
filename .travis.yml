@@ -31,7 +31,7 @@ addons:
 
 matrix:
   include:
-    # Default BUILD is scons. Default APP is rippled.
+    # Default BUILD is scons. Default APP is divvyd.
 
     - compiler: gcc
       env:
@@ -58,14 +58,14 @@ cache:
   - cmake
 
 before_install:
-  - ( cd extras/ripple-libpp/extras/rippled && bin/ci/ubuntu/install-dependencies.sh ../../../.. )
+  - ( cd extras/divvy-libpp/extras/divvyd && bin/ci/ubuntu/install-dependencies.sh ../../../.. )
 
 script:
-  - extras/ripple-libpp/extras/rippled/bin/ci/ubuntu/build-and-test.sh
+  - extras/divvy-libpp/extras/divvyd/bin/ci/ubuntu/build-and-test.sh
 
 notifications:
   email:
     false
   irc:
     channels:
-      - "chat.freenode.net#ripple-dev"
+      - "chat.freenode.net#divvy-dev"

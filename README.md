@@ -1,25 +1,25 @@
 # validator-keys-tool
 
-[![CircleCI](https://circleci.com/gh/ripple/validator-keys-tool.svg?style=svg)](https://circleci.com/gh/ripple/validator-keys-tool)
-[![Build Status](https://travis-ci.org/ripple/validator-keys-tool.svg?branch=master)](https://travis-ci.org/ripple/validator-keys-tool)
-[![Build status](https://ci.appveyor.com/api/projects/status/dd42bs8pfao8k82p/branch/master?svg=true)](https://ci.appveyor.com/project/ripple/validator-keys-tool)
-[![codecov](https://codecov.io/gh/ripple/validator-keys-tool/branch/master/graph/badge.svg)](https://codecov.io/gh/ripple/validator-keys-tool)
+[![CircleCI](https://circleci.com/gh/xdv/validator-keys-tool.svg?style=svg)](https://circleci.com/gh/xdv/validator-keys-tool)
+[![Build Status](https://travis-ci.org/xdv/validator-keys-tool.svg?branch=master)](https://travis-ci.org/xdv/validator-keys-tool)
+[![Build status](https://ci.appveyor.com/api/projects/status/dd42bs8pfao8k82p/branch/master?svg=true)](https://ci.appveyor.com/project/xdv/validator-keys-tool)
+[![codecov](https://codecov.io/gh/xdv/validator-keys-tool/branch/master/graph/badge.svg)](https://codecov.io/gh/xdv/validator-keys-tool)
 
-Rippled validator key generation tool
+Divvyd validator key generation tool
 
 ## Table of contents
 
 * [Dependencies](#dependencies)
-  * [ripple-libpp submodule](#ripple-libpp-submodule)
+  * [divvy-libpp submodule](#divvy-libpp-submodule)
   * [Other dependencies](#other-dependencies)
 * [Build and run](#build-and-run)
 * [Guide](#guide)
 
 ## Dependencies
 
-### ripple-libpp submodule
+### divvy-libpp submodule
 
-This includes a git submodule to the ripple-libpp source code, which is not cloned by default. To get the ripple-libpp source, either clone this repository using
+This includes a git submodule to the divvy-libpp source code, which is not cloned by default. To get the divvy-libpp source, either clone this repository using
 ```
 $ git clone --recursive <location>
 ```

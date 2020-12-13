@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 /*
     This file is part of validator-keys-tool:
-        https://github.com/ripple/validator-keys-tool
+        https://github.com/xdv/validator-keys-tool
     Copyright (c) 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -20,9 +20,9 @@
 
 #include <ValidatorKeysTool.h>
 #include <ValidatorKeys.h>
-#include <ripple/beast/core/PlatformConfig.h>
-#include <ripple/beast/core/SemanticVersion.h>
-#include <ripple/beast/unit_test.h>
+#include <divvy/beast/core/PlatformConfig.h>
+#include <divvy/beast/core/SemanticVersion.h>
+#include <divvy/beast/unit_test.h>
 #include <beast/unit_test/dstream.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
@@ -76,7 +76,7 @@ static int runUnitTests ()
 
 void createKeyFile (boost::filesystem::path const& keyFile)
 {
-    using namespace ripple;
+    using namespace divvy;
 
     if (exists (keyFile))
         throw std::runtime_error (
@@ -93,7 +93,7 @@ void createKeyFile (boost::filesystem::path const& keyFile)
 
 void createToken (boost::filesystem::path const& keyFile)
 {
-    using namespace ripple;
+    using namespace divvy;
 
     auto keys = ValidatorKeys::make_ValidatorKeys (keyFile);
 
@@ -111,7 +111,7 @@ void createToken (boost::filesystem::path const& keyFile)
     // Update key file with new token sequence
     keys.writeToFile (keyFile);
 
-    std::cout << "Update rippled.cfg file with these values and restart rippled:\n\n";
+    std::cout << "Update divvyd.cfg file with these values and restart divvyd:\n\n";
     std::cout << "# validator public key: " <<
         toBase58 (TOKEN_NODE_PUBLIC, keys.publicKey()) << "\n\n";
     std::cout << "[validator_token]\n";
@@ -126,7 +126,7 @@ void createToken (boost::filesystem::path const& keyFile)
 
 void createRevocation (boost::filesystem::path const& keyFile)
 {
-    using namespace ripple;
+    using namespace divvy;
 
     auto keys = ValidatorKeys::make_ValidatorKeys (keyFile);
 
@@ -140,7 +140,7 @@ void createRevocation (boost::filesystem::path const& keyFile)
     // Update key file with new token sequence
     keys.writeToFile (keyFile);
 
-    std::cout << "Update rippled.cfg file with these values and restart rippled:\n\n";
+    std::cout << "Update divvyd.cfg file with these values and restart divvyd:\n\n";
     std::cout << "# validator public key: " <<
         toBase58 (TOKEN_NODE_PUBLIC, keys.publicKey()) << "\n\n";
     std::cout << "[validator_key_revocation]\n";
@@ -155,7 +155,7 @@ void createRevocation (boost::filesystem::path const& keyFile)
 void signData (std::string const& data,
     boost::filesystem::path const& keyFile)
 {
-    using namespace ripple;
+    using namespace divvy;
 
     if (data.empty())
         throw std::runtime_error (
@@ -325,7 +325,7 @@ int main (int argc, char** argv)
     std::string const defaultKeyFile =
         (homeDir.empty () ?
             boost::filesystem::current_path ().string () : homeDir) +
-        "/.ripple/validator-keys.json";
+        "/.divvy/validator-keys.json";
 
     try
     {

@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 /*
     This file is part of validator-keys-tool:
-        https://github.com/ripple/validator-keys-tool
+        https://github.com/xdv/validator-keys-tool
     Copyright (c) 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any

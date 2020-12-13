@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 /*
-    This file is part of rippled: https://github.com/ripple/rippled
+    This file is part of divvyd: https://github.com/xdv/divvyd
     Copyright 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -20,9 +20,9 @@
 #include <ValidatorKeysTool.h>
 #include <ValidatorKeys.h>
 #include <test/KeyFileGuard.h>
-#include <ripple/protocol/SecretKey.h>
+#include <divvy/protocol/SecretKey.h>
 
-namespace ripple {
+namespace divvy {
 
 namespace tests {
 
@@ -309,8 +309,8 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ValidatorKeysTool, keys, ripple);
+BEAST_DEFINE_TESTSUITE(ValidatorKeysTool, keys, divvy);
 
 } // tests
 
-} // ripple
+} // divvy

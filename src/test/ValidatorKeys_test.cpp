@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 /*
-    This file is part of rippled: https://github.com/ripple/rippled
+    This file is part of divvyd: https://github.com/xdv/divvyd
     Copyright 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -19,12 +19,12 @@
 
 #include <ValidatorKeys.h>
 #include <test/KeyFileGuard.h>
-#include <ripple/basics/StringUtilities.h>
-#include <ripple/protocol/HashPrefix.h>
-#include <ripple/protocol/Sign.h>
+#include <divvy/basics/StringUtilities.h>
+#include <divvy/protocol/HashPrefix.h>
+#include <divvy/protocol/Sign.h>
 #include <beast/core/detail/base64.hpp>
 
-namespace ripple {
+namespace divvy {
 
 namespace tests {
 
@@ -393,8 +393,8 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ValidatorKeys, keys, ripple);
+BEAST_DEFINE_TESTSUITE(ValidatorKeys, keys, divvy);
 
 } // tests
 
-} // ripple
+} // divvy

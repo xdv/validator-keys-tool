@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 /*
     This file is part of validator-keys-tool:
-        https://github.com/ripple/validator-keys-tool
+        https://github.com/xdv/validator-keys-tool
     Copyright (c) 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -18,8 +18,8 @@
 */
 //==============================================================================
 
-#include <ripple/crypto/KeyType.h>
-#include <ripple/protocol/SecretKey.h>
+#include <divvy/crypto/KeyType.h>
+#include <divvy/protocol/SecretKey.h>
 
 namespace boost
 {
@@ -29,7 +29,7 @@ class path;
 }
 }
 
-namespace ripple {
+namespace divvy {
 
 struct ValidatorToken
 {
@@ -130,4 +130,4 @@ public:
     }
 };
 
-} // ripple
+} // divvy

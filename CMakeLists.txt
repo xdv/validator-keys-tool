@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extras/ripple-libpp/extras/rippled/Builds/CMake")
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extras/divvy-libpp/extras/divvyd/Builds/CMake")
 include(CMakeFuncs)
 
 set(openssl_min 1.0.1)
@@ -27,9 +27,9 @@ check_gcc4_abi()
 include_directories(
   src/
   SYSTEM
-  extras/ripple-libpp/extras/rippled/src
-  extras/ripple-libpp/extras/rippled/src/beast/include
-  extras/ripple-libpp/extras/rippled/src/beast/extras)
+  extras/divvy-libpp/extras/divvyd/src
+  extras/divvy-libpp/extras/divvyd/src/beast/include
+  extras/divvy-libpp/extras/divvyd/src/beast/extras)
 
 special_build_flags()
 
@@ -50,13 +50,13 @@ setup_build_boilerplate()
 
 ############################################################
 
-add_with_props(lib_src extras/ripple-libpp/src/unity/ripple-libpp.cpp
-  -I"${CMAKE_SOURCE_DIR}/"extras/ripple-libpp/extras/rippled/src/secp256k1
+add_with_props(lib_src extras/divvy-libpp/src/unity/divvy-libpp.cpp
+  -I"${CMAKE_SOURCE_DIR}/"extras/divvy-libpp/extras/divvyd/src/secp256k1
   ${no_unused_w}
   )
 
-add_with_props(lib_src extras/ripple-libpp/extras/rippled/src/ripple/unity/ed25519_donna.c
-  -I"${CMAKE_SOURCE_DIR}/"extras/ripple-libpp/extras/rippled/src/ed25519-donna)
+add_with_props(lib_src extras/divvy-libpp/extras/divvyd/src/divvy/unity/ed25519_donna.c
+  -I"${CMAKE_SOURCE_DIR}/"extras/divvy-libpp/extras/divvyd/src/ed25519-donna)
 
 ############################################################
 
@@ -70,7 +70,7 @@ prepend(app_src
 ############################################################
 
 if (WIN32 OR is_xcode)
-  # Rippled sources
+  # Divvyd sources
   foreach(curdir
       beast/core
       beast/hash
@@ -80,14 +80,14 @@ if (WIN32 OR is_xcode)
       crypto
       json
       protocol)
-    file(GLOB_RECURSE cursrcs extras/ripple-libpp/extras/rippled/src/ripple/${curdir}/*.h
-      extras/ripple-libpp/extras/rippled/src/ripple/${curdir}/*.cpp)
-    list(APPEND rippled_src "${cursrcs}")
+    file(GLOB_RECURSE cursrcs extras/divvy-libpp/extras/divvyd/src/divvy/${curdir}/*.h
+      extras/divvy-libpp/extras/divvyd/src/divvy/${curdir}/*.cpp)
+    list(APPEND divvyd_src "${cursrcs}")
     list(APPEND non_unity_srcs "${cursrcs}")
   endforeach()
 
   file(GLOB_RECURSE all_headers src/*.hpp extras/*.hpp src/*.h extras/*.h)
-  list(APPEND rippled_src "${all_headers}")
+  list(APPEND divvyd_src "${all_headers}")
 
   # Properties
   set_property(
@@ -116,12 +116,12 @@ endif()
 
 if (WIN32 OR is_xcode)
   group_sources(src)
-  group_sources(extras/ripple-libpp/extras/rippled/src)
+  group_sources(extras/divvy-libpp/extras/divvyd/src)
 endif()
 
-add_library(ripplelibpp OBJECT ${lib_src} ${rippled_src})
+add_library(divvylibpp OBJECT ${lib_src} ${divvyd_src})
 
-add_executable(validator-keys ${app_src} $<TARGET_OBJECTS:ripplelibpp> ${rippled_src})
+add_executable(validator-keys ${app_src} $<TARGET_OBJECTS:divvylibpp> ${divvyd_src})
 
 set_startup_project(validator-keys)
 

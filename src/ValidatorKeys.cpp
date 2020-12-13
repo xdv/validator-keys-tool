@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 /*
     This file is part of validator-keys-tool:
-        https://github.com/ripple/validator-keys-tool
+        https://github.com/xdv/validator-keys-tool
     Copyright (c) 2016 Ripple Labs Inc.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -19,16 +19,16 @@
 //==============================================================================
 
 #include <ValidatorKeys.h>
-#include <ripple/basics/StringUtilities.h>
-#include <ripple/json/json_reader.h>
-#include <ripple/json/to_string.h>
-#include <ripple/protocol/HashPrefix.h>
-#include <ripple/protocol/Sign.h>
+#include <divvy/basics/StringUtilities.h>
+#include <divvy/json/json_reader.h>
+#include <divvy/json/to_string.h>
+#include <divvy/protocol/HashPrefix.h>
+#include <divvy/protocol/Sign.h>
 #include <beast/core/detail/base64.hpp>
 #include <boost/filesystem.hpp>
 #include <fstream>
 
-namespace ripple {
+namespace divvy {
 
 std::string
 ValidatorToken::toString () const
@@ -192,9 +192,9 @@ ValidatorKeys::createValidatorToken (
     st[sfPublicKey] = publicKey_;
     st[sfSigningPubKey] = tokenPublic;
 
-    ripple::sign(st, HashPrefix::manifest, keyType, tokenSecret);
+    divvy::sign(st, HashPrefix::manifest, keyType, tokenSecret);
 
-    ripple::sign(st, HashPrefix::manifest, keyType_, secretKey_,
+    divvy::sign(st, HashPrefix::manifest, keyType_, secretKey_,
         sfMasterSignature);
 
     Serializer s;
@@ -214,7 +214,7 @@ ValidatorKeys::revoke ()
     st[sfSequence] = std::numeric_limits<std::uint32_t>::max ();
     st[sfPublicKey] = publicKey_;
 
-    ripple::sign(st, HashPrefix::manifest, keyType_, secretKey_,
+    divvy::sign(st, HashPrefix::manifest, keyType_, secretKey_,
         sfMasterSignature);
 
     Serializer s;
@@ -227,7 +227,7 @@ ValidatorKeys::revoke ()
 std::string
 ValidatorKeys::sign (std::string const& data)
 {
-    return strHex(ripple::sign (publicKey_, secretKey_, makeSlice (data)));
+    return strHex(divvy::sign (publicKey_, secretKey_, makeSlice (data)));
 }
 
-} // ripple
+} // divvy
