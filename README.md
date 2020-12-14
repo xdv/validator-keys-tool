@@ -1,8 +1,7 @@
 # validator-keys-tool
 
-[![CircleCI](https://circleci.com/gh/xdv/validator-keys-tool.svg?style=svg)](https://circleci.com/gh/xdv/validator-keys-tool)
 [![Build Status](https://travis-ci.org/xdv/validator-keys-tool.svg?branch=master)](https://travis-ci.org/xdv/validator-keys-tool)
-[![Build status](https://ci.appveyor.com/api/projects/status/dd42bs8pfao8k82p/branch/master?svg=true)](https://ci.appveyor.com/project/xdv/validator-keys-tool)
+[![Build status](https://ci.appveyor.com/api/projects/status/qvxoq24w8wlj5890?svg=true)](https://ci.appveyor.com/project/xdv/validator-keys-tool)
 [![codecov](https://codecov.io/gh/xdv/validator-keys-tool/branch/master/graph/badge.svg)](https://codecov.io/gh/xdv/validator-keys-tool)
 
 Divvyd validator key generation tool
